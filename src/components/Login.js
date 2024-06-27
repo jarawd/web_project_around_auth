@@ -4,7 +4,13 @@ import { useContext, useEffect, useState } from 'react';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 export default function Login({ handleLogin }) {
-  const { menu, setMenu, setLoggedIn } = useContext(CurrentUserContext);
+  const {
+    menu,
+    setMenu,
+    setLoggedIn,
+    setIsRegisterPopupOpen,
+    setStateRegister,
+  } = useContext(CurrentUserContext);
   const navigate = useNavigate();
 
   const [email, setEmail] = useState();
@@ -19,9 +25,16 @@ export default function Login({ handleLogin }) {
   function handleSubmit(e) {
     e.preventDefault();
     if (!email || !password) return;
-    handleLogin(email, password);
-    setLoggedIn(true);
-    navigate('/');
+    handleLogin(email, password).then((res) => {
+      if (res) {
+        setLoggedIn(true);
+        navigate('/');
+      } else {
+        setStateRegister(false);
+        setIsRegisterPopupOpen(true);
+        navigate('/signup');
+      }
+    });
   }
 
   return (

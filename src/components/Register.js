@@ -1,5 +1,4 @@
 import { useNavigate, Link } from 'react-router-dom';
-import * as auth from '../utils/auth';
 import { useState, useContext, useEffect } from 'react';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
@@ -19,16 +18,22 @@ export default function Register({ handleRegister }) {
   function handleSubmit(e) {
     e.preventDefault();
     if (email && password) {
-      handleRegister(email, password);
-      setStateRegister(true);
-      setIsRegisterPopupOpen(true);
-      navigate('/signin');
+      handleRegister(email, password).then((res) => {
+        if (res) {
+          setStateRegister(true);
+          setIsRegisterPopupOpen(true);
+          navigate('/signin');
+        } else {
+          setStateRegister(false);
+          setIsRegisterPopupOpen(true);
+          navigate('/signup');
+        }
+      });
     } else {
       setStateRegister(false);
       setIsRegisterPopupOpen(true);
     }
   }
-
   return (
     <div className="register">
       <h2 className="register__title">Regístrate</h2>

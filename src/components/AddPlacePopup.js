@@ -1,6 +1,6 @@
-import React from "react";
-import PopupWithForm from "./PopupWithForm";
-import { useState } from "react";
+import React from 'react';
+import PopupWithForm from './PopupWithForm';
+import { useState } from 'react';
 
 export default function AddPlacePopup(props) {
   const [placeName, setPlaceName] = useState();
@@ -37,7 +37,7 @@ export default function AddPlacePopup(props) {
           }}
           name="name"
           type="text"
-          id="popup__input-name"
+          id="popup__input-name place"
           placeholder="Título"
           className="popup__form-item popup__form-item_name"
           required
@@ -49,13 +49,16 @@ export default function AddPlacePopup(props) {
           }}
           type="url"
           name="info"
-          id="popup__input-info"
+          id="popup__input-info place"
           placeholder="Enlace de la imagen"
           className="popup__form-item popup__form-item_info"
           required
         />
         <span className="popup__span-error popup__input-info-error"></span>
-        <button type="submit" className="popup__form-button">
+        <button
+          type="submit"
+          className="popup__form-button"
+        >
           Create
         </button>
       </form>

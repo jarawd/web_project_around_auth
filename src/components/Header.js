@@ -12,9 +12,10 @@ function Header() {
         className="header__logo-container"
       />
       <div className="header__menu-container">
-        {menu.map((el) => {
+        {menu.map((el, i) => {
           return (
             <Link
+              key={i}
               className="header__menu-item"
               to={el.route}
             >
