@@ -3,8 +3,8 @@ import PopupWithForm from './PopupWithForm';
 import { useState } from 'react';
 
 export default function AddPlacePopup(props) {
-  const [placeName, setPlaceName] = useState();
-  const [placePath, setPlacePath] = useState();
+  const [placeName, setPlaceName] = useState('');
+  const [placePath, setPlacePath] = useState('');
 
   function setCard(e) {
     e.preventDefault();

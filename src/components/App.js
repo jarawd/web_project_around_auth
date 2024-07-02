@@ -21,13 +21,13 @@ function App() {
   const [isRegisterPopupOpen, setIsRegisterPopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState(false);
   const [isImagePopupOpen, setImagePopupOpen] = useState(false);
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState('');
   const [cards, setCards] = useState([]);
   const [menu, setMenu] = useState(['']);
   const [loggedIn, setLoggedIn] = useState(false);
   const [stateRegister, setStateRegister] = useState('');
   const [userEmail, setUserEmail] = useState('');
-  const navigate = useNavigate();
+  const navigate = useNavigate('');
 
   function handleCardDelete(card) {
     api

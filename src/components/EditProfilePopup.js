@@ -3,8 +3,8 @@ import PopupWithForm from './PopupWithForm';
 import { useState } from 'react';
 
 export default function EditProfilePopup(props) {
-  const [name, setName] = useState();
-  const [description, setDescription] = useState();
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
 
   function handleSubmit(e) {
     e.preventDefault();

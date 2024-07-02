@@ -13,8 +13,8 @@ export default function Login({ handleLogin }) {
   } = useContext(CurrentUserContext);
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   useEffect(() => {
     if (menu.length === 0 || menu[0].route !== '/signup') {
